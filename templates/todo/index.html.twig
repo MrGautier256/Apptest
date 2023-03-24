@@ -18,16 +18,18 @@
 		{% for message in app.session.flashBag.get('success') %}
 			<div class="alert alert-success">
 				{{message}}
+
 			</div>
 		{% endfor %}
 		{% for message in app.session.flashBag.get('danger') %}
 			<div class="alert alert-danger">
-				{{message}}
+				{{message|upper}}
 			</div>
 		{% endfor %}
 
 
-		<h1>List des ToDo</h1>
+		<h1>List des ToDo:
+			{{"now"|date("d/m/Y")}}</h1>
 		<ol class="list-group">
 			{% for name,content in app.session.get('todos') %}
 				<li class="list-group-item">
